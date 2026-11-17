@@ -57,7 +57,10 @@ Talk to your AI agent in natural language:
 - "禁播 bucket-a 里的 stream-1" → `stream-management/ban_stream`
 - "给 bucket-a 绑定播放域名 live.example.com" → `domain-management/bind_downstream_domain`
 - "读取 https://example.com/page 的页面内容" → xfetch-web skill 调用 Qiniu xfetch 
-
+- "把本地 Agent 项目迁移到七牛 AgentAPI" → agentapi skill 查看项目配置，选择 HTTP 接口或 Anthropic SDK 接入
+- "用 AgentAPI 做一个代码审查助手" → agentapi skill 选择 `claudecode` / `codex` 运行时，用 Agent Skills 复用审查规范
+- "每天早上自动生成订单巡检报告" → agentapi skill 配置定时部署和文件交付
+- "让智能体在内网执行运维任务" → agentapi skill 使用 `native` 运行时和自托管执行器
 ## Repository Structure
 
 ```
@@ -94,6 +97,13 @@ skills/
     ├── SKILL.md                  # Skill 定义
     └── scripts/
         └── xfetch.py             # 路径式 xfetch API 辅助脚本
+└── agentapi/                     # Qiniu AgentAPI integration and troubleshooting guidance
+    ├── SKILL.md                  # Skill definition (runtime/env selection, session/SSE, validation)
+    ├── README.md                 # Install guide and developer community QR code
+    ├── assets/
+    │   └── developer-community.jpg
+    └── references/
+        └── INDEX.md              # Auto-synced documentation index from Qiniu Developer Center
 ```
 
 ## Contributing
